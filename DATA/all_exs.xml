@@ -1,7 +1,100 @@
 <?xml version= "1.0"?>
 
 <levels>
-	<L_1>
-		
-	</L_1>
+	<level>
+		<title>Level 1</title>
+		<part> 
+			<title>Part 1</title>
+			<exercices>
+				<ex>
+					<hint>Left Hand</hint>
+					<text>ffff dddd ssss aaaa ffff dddd ssss aaaa ffff dddd ssss aaaa</text>
+				</ex>
+				<ex>
+					<hint>Left Hand</hint>
+					<text>asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf</text>
+				</ex>
+				<ex>
+					<hint>Left Hand</hint>
+					<text>fdsa fdsa fdsa fdsa fdsa fdsa fdsa fdsa fdsa fdsa</text>
+				</ex>
+				<ex>
+					<hint>Right Hand</hint>
+					<text>jjjj kkkk llll ;;;; jjjj kkkk llll ;;;; jjjj kkkk llll ;;;;</text>
+				</ex>
+				<ex>
+					<hint>Right Hand</hint>
+					<text>jkl; jkl; jkl; jkl; jkl; jkl; jkl; jkl; jkl; jkl; jkl; jkl;</text>
+				</ex>
+				<ex>
+					<hint>Right Hand</hint>
+					<text>;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj</text>
+				</ex>
+				<ex>
+					<hint>Both Hands</hint>
+					<text>fd fds fdsa jk jkl jkl; fd fds fdsa jk jkl jkl; fd fds fdsa jk jkl jkl;</text>
+				</ex>
+			</exercices>
+		</part>
+		<part> 
+			<title>Part 2</title>
+			<exercices>
+				<ex>
+					<hint>Left Hand</hint>
+					<text>deed frrf deer reed red deed frrf deer reed red deed frrf deer reed red</text>
+				</ex>
+				<ex>
+					<hint>Left Hand</hint>
+					<text>free freed fred feed fed free freed fred feed fed free freed fred feed fed</text>
+				</ex>
+				<ex>
+					<hint>Left Hand</hint>
+					<text>reef reef ref ref refer refer defer defer referred deferred refereed</text>
+				</ex>
+				
+				<ex>
+					<hint>Right Hand</hint>
+					<text>juuj kiik juj kik juuj kiik juj kik juuj kiik juj kik juuj kiik juj kik</text>
+				</ex>
+				
+				<ex>
+					<hint>Both Hand</hint>
+					<text>jude jude dud dud dude dude rude rude due due rudder rudder</text>
+				</ex>
+				<ex>
+					<hint>Both Hand</hint>
+					<text>fur fur fir fir fire fire fired fired ride ride fried fried rider rider</text>
+				</ex>
+				<ex>
+					<hint>Both Hand</hint>
+					<text>kid kid did did die die died died dried dried ride ride drier drier</text>
+				</ex>
+				
+				<ex>
+					<hint>Both Hand</hint>
+					<text>red deer; feed freddie; red fire; free feed; fried deer;</text>
+				</ex>
+				<ex>
+					<hint>Both Hand</hint>
+					<text>eddie died; free ride; eddie fired fred; did eddie die;</text>
+				</ex>
+				<ex>
+					<hint>Both Hand</hint>
+					<text>edifier rider dude freed red fur deer; kidder eddie rudder fed red deer;</text>
+				</ex>
+				<ex>
+					<hint>Both Hand</hint>
+					<text>freed fed red deer died; fred fuji fried freed fed red deer;</text>
+				</ex>
+				<ex>
+					<hint>Both Hand</hint>
+					<text>duke jeered rude referee jed; did irked kirk fire rude jerk;</text>
+				</ex>
+				<ex>
+					<hint>Both Hand</hint>
+					<text>did freddie duke feed jeff kirk free fried red deer; rude eddie kerr jerked duke kirk;</text>
+				</ex>
+			</exercices>
+		</part>
+	</level>
 </levels>
