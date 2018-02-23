@@ -31,7 +31,6 @@
 					<text>;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj ;lkj</text>
 				</ex>
 				<ex>
-					<hint>Both Hands</hint>
 					<text>fd fds fdsa jk jkl jkl; fd fds fdsa jk jkl jkl; fd fds fdsa jk jkl jkl;</text>
 				</ex>
 			</exercices>
@@ -50,49 +49,117 @@
 				<ex>
 					<hint>Left Hand</hint>
 					<text>reef reef ref ref refer refer defer defer referred deferred refereed</text>
-				</ex>
-				
+				</ex>	
 				<ex>
 					<hint>Right Hand</hint>
 					<text>juuj kiik juj kik juuj kiik juj kik juuj kiik juj kik juuj kiik juj kik</text>
-				</ex>
-				
+				</ex>			
 				<ex>
-					<hint>Both Hand</hint>
 					<text>jude jude dud dud dude dude rude rude due due rudder rudder</text>
 				</ex>
 				<ex>
-					<hint>Both Hand</hint>
 					<text>fur fur fir fir fire fire fired fired ride ride fried fried rider rider</text>
 				</ex>
 				<ex>
-					<hint>Both Hand</hint>
 					<text>kid kid did did die die died died dried dried ride ride drier drier</text>
-				</ex>
-				
+				</ex>			
 				<ex>
-					<hint>Both Hand</hint>
 					<text>red deer; feed freddie; red fire; free feed; fried deer;</text>
 				</ex>
 				<ex>
-					<hint>Both Hand</hint>
 					<text>eddie died; free ride; eddie fired fred; did eddie die;</text>
 				</ex>
 				<ex>
-					<hint>Both Hand</hint>
 					<text>edifier rider dude freed red fur deer; kidder eddie rudder fed red deer;</text>
 				</ex>
 				<ex>
-					<hint>Both Hand</hint>
 					<text>freed fed red deer died; fred fuji fried freed fed red deer;</text>
 				</ex>
 				<ex>
-					<hint>Both Hand</hint>
 					<text>duke jeered rude referee jed; did irked kirk fire rude jerk;</text>
 				</ex>
 				<ex>
-					<hint>Both Hand</hint>
 					<text>did freddie duke feed jeff kirk free fried red deer; rude eddie kerr jerked duke kirk;</text>
+				</ex>
+			</exercices>
+		</part>
+	</level>
+	
+	<level>
+		<title>Level 2</title>
+		<part>
+			<title>Part 1</title>
+			<exercices>
+				<ex>
+					<text>gh gh gh gh gh gh gh gh gh gh gh gh gh</text>
+				</ex>
+				<ex>
+					<text>th th th th th th th th ght ght ght ght ght ght ght</text>
+				</ex>
+				<ex>
+					<text>feet fret get greet regret regretted rift drift gift gifted fig figure</text>
+				</ex>
+				<ex>
+					<text>dirt diet tire tired retire retired tried he her here the there</text>
+				</ex>
+				<ex>
+					<text>jut jutted jud jug judge judged hug hugged dug drug drugged</text>
+				</ex>
+				<ex>
+					<text>ugh high higher thigh tight fight right fright tight height eighth hut hurt</text>
+				</ex>
+				<ex>
+					<text>freddie tried the fridge; the right fridge; keith agreed; the huge free feed;</text>
+				</ex>
+				<ex>
+					<text>red jug; guide the tight red kite higher; the hired guide urged the rugged hiker;</text>
+				</ex>
+				<ex>
+					<text>the right judge; the third huge tiger tried; true ruth tried the third free gift;</text>
+				</ex>
+			</exercices>
+		</part>
+		<part>
+			<title>Part 2</title>
+			<exercices>
+				<ex>
+					<text>wee weed wed were wet sweet sweeter wee weed wed were wet sweet sweeter</text>
+				</ex>
+				<ex>
+					<text>weeds weeded seed seeds seeded weeds weeded seed seeds seeded</text>
+				</ex>
+				<ex>
+					<text>lool look loot hoot tool fool fools lool look loot hoot tool fool fools</text>
+				</ex>
+				<ex>
+					<text>dull duller full fuller hull hulls hullo dull duller full fuller hull hulls hullo</text>
+				</ex>
+				<ex>
+					<text>toll tolls roll rolls told fold folds toll tolls roll rolls told fold folds</text>
+				</ex>
+				<ex>
+					<text>juj jyyj joy toy roy try fry juj jyyj joy toy roy try fry juj jyyj joy toy roy try fry</text>
+				</ex>
+				<ex>
+					<text>jit hit fit dit wit lit litter jit hit fit dit wit lit litter jit hit fit dit wit lit litter</text>
+				</ex>
+				<ex>
+					<text>wet wets jet jets let lets letters wet wets jet jets let lets letters</text>
+				</ex>
+				<ex>
+					<text>try fried food; jets fly high; wet litter; try to fly; try fried food; jets fly high; wet litter;</text>
+				</ex>
+				<ex>
+					<text>folded rolls; fred looks duller; red toy kite; jittery jet; freds red roll looks duller;</text>
+				</ex>
+				<ex>
+					<text>the first red kite flies higher; let the wet kite dry; weed seeds;</text>
+				</ex>
+				<ex>
+					<text>little red dolls roll; toy dolls for wee jill; look for freddie;</text>
+				</ex>
+				<ex>
+					<text>first flight for fred; jill jilted hugh west; first flight for fred; jill jilted hugh west;</text>
 				</ex>
 			</exercices>
 		</part>
