@@ -1,6 +1,7 @@
 <?xml version= "1.0"?>
 
 <levels>
+	<!-- LEVEL 1 -->
 	<level>
 		<title>Level 1</title>
 		<part> 
@@ -84,7 +85,7 @@
 			</exercices>
 		</part>
 	</level>
-	
+	<!-- LEVEL 2 -->
 	<level>
 		<title>Level 2</title>
 		<part>
@@ -164,7 +165,7 @@
 			</exercices>
 		</part>
 	</level>
-	
+	<!-- LEVEL 3 -->
 	<level>
 		<title>Level 3</title>
 		<part>
@@ -223,7 +224,7 @@
 			</exercices>
 		</part>
 	</level>
-	
+	<!-- LEVEL 4 -->
 	<level>
 		<title>Level 4</title>
 		<part>
@@ -278,6 +279,59 @@
 				</ex>
 				<ex>
 					<text>Jimmy took Henry to town to buy something. He bought four good story books.</text>
+				</ex>
+			</exercices>
+		</part>
+	</level>
+	<!-- LEVEL 5 -->
+	<level>
+		<title>Level 5</title>
+		<part>
+			<exercices>
+				<ex>
+					<text>faf far fat fatter far farmer faf far fat fatter far farmer</text>
+				</ex>
+				<ex>
+					<text>fan ran tan jan land hand band fan ran tan jan land hand band</text>
+				</ex>
+				<ex>
+					<text>pot port pit put pop pup puppy pot port pit put pop pup puppy</text>
+				</ex>
+				<ex>
+					<text>purr top rope romp trap tramp trumpet purr top rope romp trap tramp trumpet</text>
+				</ex>
+				<ex>
+					<text>fig rig tig pig got grip green fig rig tig pig got grip green</text>
+				</ex>
+				<ex>
+					<text>ring ding dong song sang singer arrange ring ding dong song sang singer range</text>
+				</ex>
+				<ex>
+					<text>quit quite quiet quill queen quilt queer quit quite quiet quill queen quilt queer</text>
+				</ex>
+				<ex>
+					<text>quote quoted equate equation equal quack quaint quote quoted equate equation</text>
+				</ex>
+				<ex>
+					<text>zoo zulu zigzag fax tax text exit zoo zulu zigzag fax tax text exit</text>
+				</ex>
+				<ex>
+					<text>We went to see the zebras and giraffes at the zoo last Friday. That was fun.</text>
+				</ex>
+				<ex>
+					<text>Make sure you type the correct text in your document or it will not make sense.</text>
+				</ex>
+				<ex>
+					<text>If you enjoyed this typing course please tell others who would find it helpful.</text>
+				</ex>
+				<ex>
+					<text>I hope the course has helped you enjoy your computer typing.</text>
+				</ex>
+				<ex>
+					<text>Type this paragraph and the one below it.  There is no need to press the Enter key to start new lines.  Keep typing and the computer will know when to drop down to the next line.  At the end of each paragraph press Enter twice to leave a blank line between paragraphs.</text>
+				</ex>
+				<ex>
+					<text>I hope you have enjoyed this typing course and can now visualize where each letter key is situated on your keyboard and which is the best finger to use for each key. If you can do that you will find you will use less energy, and finish your typing more quickly.</text>
 				</ex>
 			</exercices>
 		</part>
