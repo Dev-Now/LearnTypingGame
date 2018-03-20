@@ -9,7 +9,7 @@ I want to learn again typing the right way. And, I mainly want to teach my child
 
 This project's goal is to make an interesting challenging game - with levels, challenging exercices and scores computed based on typing speed that are saved and compared to other users' scores.
 
-The idea came to me when I came across this interesting website [Learn Typing](www.learntyping.org). 
+The idea came to me when I came across this interesting website: [Learn Typing](http://www.learntyping.org/). 
 This website is obviously teaching adults not children how to type. It's going to be boring to send a child to do typing exercices on it regularly.
 On the other hand, a game with scores and certain special effects should be fun (Not as fun as a Mario Kart type of game, one would argue! But it teaches while playing...)
 I thought I could use this great website's lessons and exercices (along with its explanations simplified for children) as an inspiration to make this game...
