@@ -8,6 +8,10 @@ namespace LearnTypingGame
     {
         static void Main(string[] args)
         {
+            // Read data
+            DataReader cDatRdr = new DataReader("DATA/all_exs.xml"); // !!! TODO... use args to have the data file name
+
+            // !!!!! TEST CODE !!!!! to remove when renderer is in place.
             XDocument xDoc = XDocument.Load("DATA/all_exs.xml");
             Console.WriteLine("THUNDERTYPER!");
 

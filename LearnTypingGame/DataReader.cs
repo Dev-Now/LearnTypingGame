@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Xml.Linq;
+using System.Collections.Generic;
 
 namespace LearnTypingGame
 {
@@ -22,16 +23,31 @@ namespace LearnTypingGame
 
         public DataReader(string szDatXmlFilePath)
         {
-            // Load the game data
+            // Load the game data file
+            XDocument xDoc;
             try
             {
-                XDocument xDoc = XDocument.Load(szDatXmlFilePath);
+                xDoc = XDocument.Load(szDatXmlFilePath);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("An error occured during Game data loading: '{0}'", e);
+                return;
             }
 
+            // --- Extract levels
+            var qLvls = from c in xDoc.Elements().Elements("level") select c;
+            cLvls = new Level[qLvls.Count()]; uint nI = 0;
+            foreach (var itLvl in qLvls)
+            {
+                cLvls[nI] = new Level(itLvl.Element("title").Value); // create the level
+
+                // -- Extract parts
+                var qParts = from c in itLvl.Elements("part") select c;
+                cLvls[nI].SetParts(qParts);
+
+                nI++; // next level
+            }
         }
     }
 
@@ -44,6 +60,28 @@ namespace LearnTypingGame
     {
         private string szTitle;
         private Part[] cParts;
+
+        public Level(string szTtl)
+        {
+            szTitle = szTtl;
+        }
+
+        public void SetParts(IEnumerable<XElement> qParts)
+        {
+            cParts = new Part[qParts.Count()]; uint nI = 0;
+            foreach (var itPart in qParts)
+            {
+                // Create part
+                if (itPart.Elements("title").Any()) { cParts[nI] = new Part(itPart.Element("title").Value); }
+                else                                { cParts[nI] = new Part(""); }
+
+                // - Extract challenges
+                var qExs = from c in itPart.Element("exercices").Elements("ex") select c;
+                cParts[nI].SetExercices(qExs);
+
+                nI++; // next part
+            }
+        }
     }
 
     /**
@@ -55,6 +93,26 @@ namespace LearnTypingGame
     {
         private string szTitle;
         private Exercice[] cExs;
+
+        public Part(string szTtl)
+        {
+            szTitle = szTtl;
+        }
+
+        public void SetExercices(IEnumerable<XElement> qExs)
+        {
+            cExs = new Exercice[qExs.Count()]; uint nI = 0;
+            foreach (var itEx in qExs)
+            {
+                // create challenge
+                string szHint = ""; string szText = "";
+                if (itEx.Elements("hint").Any()) { szHint = itEx.Element("hint").Value; }
+                if (itEx.Elements("text").Any()) { szText = itEx.Element("text").Value; }
+                cExs[nI] = new Exercice(szHint, szText);
+
+                nI++; // next challenge
+            }
+        }
     }
 
     /**
@@ -66,5 +124,11 @@ namespace LearnTypingGame
     {
         private string szHint;
         private string szText;
+
+        public Exercice(string szHnt, string szTxt)
+        {
+            szHint = szHnt;
+            szText = szTxt;
+        }
     }
 }
