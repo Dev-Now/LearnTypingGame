@@ -13,14 +13,22 @@ namespace LearnTypingGame
      * A valid game data xml file path
      * 
      * Features :
-     * - return current game level / part / hint / challenge text
-     * - increments levels / parts / hints / challenges
+     * - reads all game data from the data file
+     * - organize it for use into level objects array
      * 
      * */
     class DataReader
     {
-        private Level[] cLvls;
+        private Level[] cLvls; // game levels - array
 
+        /**
+         * Returns the game data (the levels array contains all the game data)
+         * */
+        public Level[] GetGameData() { return cLvls; }
+
+        /**
+         * DataReader constructor
+         * */
         public DataReader(string szDatXmlFilePath)
         {
             // Load the game data file
@@ -58,14 +66,20 @@ namespace LearnTypingGame
      * */
     class Level
     {
-        private string szTitle;
-        private Part[] cParts;
+        private string szTitle; // level title
+        private Part[] cParts;  // level parts - array
 
+        /**
+         * Level constructor
+         * */
         public Level(string szTtl)
         {
             szTitle = szTtl;
         }
 
+        /**
+         * sets the level parts
+         * */
         public void SetParts(IEnumerable<XElement> qParts)
         {
             cParts = new Part[qParts.Count()]; uint nI = 0;
@@ -91,14 +105,20 @@ namespace LearnTypingGame
      * */
     class Part
     {
-        private string szTitle;
-        private Exercice[] cExs;
+        private string szTitle;     // part title
+        private Exercice[] cExs;    // part challenges - array
 
+        /**
+         * Part constructor
+         * */
         public Part(string szTtl)
         {
             szTitle = szTtl;
         }
 
+        /**
+         * sets the part challenges
+         * */
         public void SetExercices(IEnumerable<XElement> qExs)
         {
             cExs = new Exercice[qExs.Count()]; uint nI = 0;
@@ -122,9 +142,12 @@ namespace LearnTypingGame
      * */
     class Exercice
     {
-        private string szHint;
-        private string szText;
+        private string szHint; // challenge hint
+        private string szText; // challenge text
 
+        /**
+         * Exercice constructor
+         * */
         public Exercice(string szHnt, string szTxt)
         {
             szHint = szHnt;
