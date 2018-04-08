@@ -5,8 +5,8 @@ using System.Text;
 namespace LearnTypingGame
 {
     /**
-     * Class DataReader :
-     * Used to read the game data and keep ready it for use by the current game session
+     * Class Renderer :
+     * Used to render game session components (according to predefined rules)
      * 
      * Inputs :
      * - Graphical configuration info
@@ -32,9 +32,29 @@ namespace LearnTypingGame
             // etc.
         }
 
-        public void RenderGameSession(Level[] cLvls /*, Game rules */)
+        public void RenderGameSession(GenericComponent[] cComps /*, Game rules */)
         {
             // Rendering logic
+            foreach (GenericComponent cOneComp in cComps)
+            {
+                RenderSingleComponent(cOneComp);
+            }
+        }
+
+        public void RenderSingleComponent(GenericComponent cComp)
+        {
+            switch(cComp.GetCompType())
+            {
+                case COMP_TYPE.eLEVEL:
+
+                    break;
+                case COMP_TYPE.ePART:
+                    break;
+                case COMP_TYPE.eEXERCICE:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
