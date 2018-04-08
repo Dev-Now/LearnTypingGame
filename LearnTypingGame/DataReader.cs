@@ -6,6 +6,31 @@ using System.Collections.Generic;
 namespace LearnTypingGame
 {
     /**
+     * Class COMP_TYPE :
+     * To define game session component types
+     * 
+     * */
+    // 
+    enum COMP_TYPE : byte
+    {
+        eLEVEL,
+        ePART,
+        eEXERCICE,
+        eTYPES // value to hold types number 
+    }
+
+    /**
+     * Class Level :
+     * Used to modelize a generic game session component
+     * 
+     * */
+    class GenericComponent
+    {
+        protected COMP_TYPE eType;  // enum value representing generic game session component type
+        protected string szTitle;   // title
+    }
+
+    /**
      * Class DataReader :
      * Used to read the game data and keep ready it for use by the current game session
      * 
@@ -64,9 +89,8 @@ namespace LearnTypingGame
      * Used to modelize a game level
      * 
      * */
-    class Level
+    class Level : GenericComponent
     {
-        private string szTitle; // level title
         private Part[] cParts;  // level parts - array
 
         /**
@@ -74,6 +98,7 @@ namespace LearnTypingGame
          * */
         public Level(string szTtl)
         {
+            eType = COMP_TYPE.eLEVEL;
             szTitle = szTtl;
         }
 
@@ -103,9 +128,8 @@ namespace LearnTypingGame
      * Used to modelize a part of a game level
      * 
      * */
-    class Part
+    class Part : GenericComponent
     {
-        private string szTitle;     // part title
         private Exercice[] cExs;    // part challenges - array
 
         /**
@@ -113,6 +137,7 @@ namespace LearnTypingGame
          * */
         public Part(string szTtl)
         {
+            eType = COMP_TYPE.ePART;
             szTitle = szTtl;
         }
 
@@ -140,7 +165,7 @@ namespace LearnTypingGame
      * Used to modelize a single game typing challenge or exercice
      * 
      * */
-    class Exercice
+    class Exercice : GenericComponent
     {
         private string szHint; // challenge hint
         private string szText; // challenge text
@@ -150,6 +175,9 @@ namespace LearnTypingGame
          * */
         public Exercice(string szHnt, string szTxt)
         {
+            eType = COMP_TYPE.eEXERCICE;
+            szTitle = ""; // Exercices have no titles in general
+
             szHint = szHnt;
             szText = szTxt;
         }
