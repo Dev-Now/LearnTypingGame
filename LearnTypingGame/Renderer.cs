@@ -43,16 +43,26 @@ namespace LearnTypingGame
 
         public void RenderSingleComponent(GenericComponent cComp)
         {
-            switch(cComp.GetCompType())
+            switch(cComp.GetType().Name)
             {
-                case COMP_TYPE.eLEVEL:
-
+                case "Level":
+                    Console.Clear();
+                    Console.WriteLine(cComp.GetTitle());
+                    RenderGameSession(cComp.GetSubComps());
+                    Console.WriteLine("--------------");
                     break;
-                case COMP_TYPE.ePART:
+                case "Part":
+                    Console.WriteLine(cComp.GetTitle());
+                    RenderGameSession(cComp.GetSubComps());
+                    Console.WriteLine();
                     break;
-                case COMP_TYPE.eEXERCICE:
+                case "Exercice":
+                    Console.WriteLine("Ready? {0}", cComp.GetHint());
+                    Console.WriteLine(  " Type this: {0}", cComp.GetText());
+                    Console.Write(      " =========> "); Console.ReadLine();
                     break;
                 default:
+                    // shouldn't fall here!
                     break;
             }
         }

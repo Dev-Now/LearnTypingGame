@@ -10,7 +10,6 @@ namespace LearnTypingGame
      * To define game session component types
      * 
      * */
-    // 
     enum COMP_TYPE : byte
     {
         eLEVEL,
@@ -28,6 +27,11 @@ namespace LearnTypingGame
     {
         protected COMP_TYPE eType;  // enum value representing generic game session component type
         protected string szTitle;   // title
+
+        public string GetTitle() { return szTitle; }
+        public virtual GenericComponent[] GetSubComps() { return new GenericComponent[] { }; }
+        public virtual string GetHint() { return ""; }
+        public virtual string GetText() { return ""; }
     }
 
     /**
@@ -93,6 +97,8 @@ namespace LearnTypingGame
     {
         private Part[] cParts;  // level parts - array
 
+        public override GenericComponent[] GetSubComps() { return cParts; }
+
         /**
          * Level constructor
          * */
@@ -132,6 +138,8 @@ namespace LearnTypingGame
     {
         private Exercice[] cExs;    // part challenges - array
 
+        public override GenericComponent[] GetSubComps() { return cExs; }
+
         /**
          * Part constructor
          * */
@@ -169,6 +177,9 @@ namespace LearnTypingGame
     {
         private string szHint; // challenge hint
         private string szText; // challenge text
+
+        public override string GetHint() { return szHint; }
+        public override string GetText() { return szText; }
 
         /**
          * Exercice constructor
