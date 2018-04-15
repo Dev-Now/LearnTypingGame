@@ -32,6 +32,9 @@ namespace LearnTypingGame
             // etc.
         }
 
+        /**
+         * Render a complete game session based on given components array
+         * */
         public void RenderGameSession(GenericComponent[] cComps /*, Game rules */)
         {
             // Rendering logic
@@ -41,6 +44,9 @@ namespace LearnTypingGame
             }
         }
 
+        /**
+         * Render a single game session component
+         * */
         public void RenderSingleComponent(GenericComponent cComp)
         {
             switch(cComp.GetType().Name)
@@ -48,13 +54,14 @@ namespace LearnTypingGame
                 case "Level":
                     Console.Clear();
                     Console.WriteLine(cComp.GetTitle());
-                    RenderGameSession(cComp.GetSubComps());
                     Console.WriteLine("--------------");
+                    RenderGameSession(cComp.GetSubComps());
                     break;
                 case "Part":
+                    Console.WriteLine("----");
                     Console.WriteLine(cComp.GetTitle());
+                    Console.WriteLine("----");
                     RenderGameSession(cComp.GetSubComps());
-                    Console.WriteLine();
                     break;
                 case "Exercice":
                     Console.WriteLine("Ready? {0}", cComp.GetHint());

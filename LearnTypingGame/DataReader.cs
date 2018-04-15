@@ -28,10 +28,10 @@ namespace LearnTypingGame
         protected COMP_TYPE eType;  // enum value representing generic game session component type
         protected string szTitle;   // title
 
-        public string GetTitle() { return szTitle; }
-        public virtual GenericComponent[] GetSubComps() { return new GenericComponent[] { }; }
-        public virtual string GetHint() { return ""; }
-        public virtual string GetText() { return ""; }
+        public string GetTitle() { return szTitle; }                                            // Get component title
+        public virtual GenericComponent[] GetSubComps() { return new GenericComponent[] { }; }  // Get subcomponents
+        public virtual string GetHint() { return ""; }                                          // Get component associated hint text
+        public virtual string GetText() { return ""; }                                          // Get component content text
     }
 
     /**
@@ -97,7 +97,7 @@ namespace LearnTypingGame
     {
         private Part[] cParts;  // level parts - array
 
-        public override GenericComponent[] GetSubComps() { return cParts; }
+        public override GenericComponent[] GetSubComps() { return cParts; } // Get subcomponents
 
         /**
          * Level constructor
@@ -138,7 +138,7 @@ namespace LearnTypingGame
     {
         private Exercice[] cExs;    // part challenges - array
 
-        public override GenericComponent[] GetSubComps() { return cExs; }
+        public override GenericComponent[] GetSubComps() { return cExs; } // Get subcomponents
 
         /**
          * Part constructor
@@ -178,8 +178,8 @@ namespace LearnTypingGame
         private string szHint; // challenge hint
         private string szText; // challenge text
 
-        public override string GetHint() { return szHint; }
-        public override string GetText() { return szText; }
+        public override string GetHint() { return szHint; } // Get component associated hint text
+        public override string GetText() { return szText; } // Get component content text
 
         /**
          * Exercice constructor
