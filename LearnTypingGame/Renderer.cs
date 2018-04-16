@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LearnTypingGame
 {
@@ -35,7 +33,7 @@ namespace LearnTypingGame
         /**
          * Render a complete game session based on given components array
          * */
-        public void RenderGameSession(GenericComponent[] cComps /*, Game rules */)
+        public void RenderGameSession(GenericComponent[] cComps /*, Game session [TODO...]*/)
         {
             // Rendering logic
             foreach (GenericComponent cOneComp in cComps)

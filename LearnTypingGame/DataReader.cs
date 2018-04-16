@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace LearnTypingGame
 {
     /**
-     * Class COMP_TYPE :
+     * enum COMP_TYPE :
      * To define game session component types
      * 
      * */
