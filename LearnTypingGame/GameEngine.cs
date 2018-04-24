@@ -68,23 +68,66 @@ namespace LearnTypingGame
             uint uScore;    // Current score
         }
 
-        protected string           szDatFileHash;                                      // used data file hash (game session data should use same data file as ref. for score comparison and keeping)
+        protected string           szDatFileHash;   // used data file hash (game session data should use same data file as ref. for score comparison and storage)
 
-        protected string           szPlayer;                                           // Player name
-        protected SavedProgress    tProgress = new SavedProgress();                    // Player progress
-        protected uint[]           uBestResults = new uint[(int)BEST_SCORES.eXthBEST]; // player best results set
+        protected string           szPlayer;        // Player name
+        protected SavedProgress    tProgress;       // Player progress
+        protected uint[]           uBestResults;    // player best results set
+
+        /**
+         * Returns sessions file path
+         * */
+        private string GetSessionsFilePath()
+        {
+            return string.Format(@"Sessions/{0}.csv", szDatFileHash);
+        }
+
+        /**
+         * Initializes the session
+         * */
+        private void InitSession()
+        {
+            tProgress       = new SavedProgress();                    
+            uBestResults    = new uint[(int)BEST_SCORES.eXthBEST];
+        }
+
+        /**
+         * Load the current player (given by her name) session and return TRUE if loaded successfully.
+         * */
+        private bool LoadSession(string szName, string szSessionsFilePath)
+        {
+            bool bLoadOK = false;
+            Console.WriteLine("Loading player {0} data...", szName);
+            // Todo... open the file and load all associated session data
+            // [Todo... add special logic to prevent player from cheating by tempering sessions info.]
+            // Todo... ask the player based on loaded data if he wants to continue or start a new game
+            // Todo... reset tProgress if new game
+            return bLoadOK;
+        }
 
         /**
          * GameSession constructor
          * */
-        public GameSession(string szDatHash /*, path to .csv file saving sessions information [TODO...]*/)
+        public GameSession(string szDatHash)
         {
+            // Save data file hash
             szDatFileHash = szDatHash;
+            // Get the player name
             Console.WriteLine("Please enter a player name:");
             szPlayer = Console.ReadLine();
-            // Todo... logic to check data file hash
-            // [Todo... add special logic to prevent player from cheating by tempering sessions info.]
-            // Todo... extract csv file information related to player if hash matches; otherwise add another player for the new hash.
+            // Check the sessions file exists; to load/init the session
+            string szSessionsFilePath = GetSessionsFilePath(); // determine the sessions file path
+            if(File.Exists(szSessionsFilePath)) { LoadSession(szPlayer, szSessionsFilePath); }
+            else                                { InitSession(); }
+        }
+
+        /**
+         * Save the current session and return TRUE if saved successfully.
+         * */
+        public bool SaveSession()
+        {
+            // Todo...
+            return false;
         }
     }
 
