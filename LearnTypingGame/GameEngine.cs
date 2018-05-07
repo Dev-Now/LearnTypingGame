@@ -34,7 +34,7 @@ namespace LearnTypingGame
         {
             // Read data
             DataReader cDatRdr;
-            if (args.Any()) { cDatRdr = new DataReader(args[0]); } else { return; }
+            if (args.Any()) { cDatRdr = new DataReader(args[0]); } else { Console.WriteLine("GameEngine => Constructor: ERROR! No game data"); return; }
 
             // Game init page
             Console.WriteLine(" *** THUNDERTYPER! *** ");
@@ -43,7 +43,7 @@ namespace LearnTypingGame
             GameSession cSession = new GameSession(CalculateMD5(args[0]));
 
             // Render game session
-            Renderer cRndr = new Renderer(); cRndr.RenderGameSession(cDatRdr.GetGameData() /*, cSession [TODO...]*/);
+            Renderer cRndr = new Renderer(); cRndr.RenderGameSession(cDatRdr.GetGameData(), cSession);
         }
     }
 
@@ -55,15 +55,15 @@ namespace LearnTypingGame
     class GameSession
     {
         /**
-         * struct SavedProgress:
-         * A structure used to represent and save player progress in the game session
+         * Class SavedProgress:
+         * A class used to represent and save player progress in the game session
          * 
          * */
-        protected struct SavedProgress
+        protected class SavedProgress
         {
-            uint uCurrLvl;  // Current level (by index)
-            uint uCurrPart; // Current part (by index)
-            uint uCurrEx;   // Current exercice (by index)
+            public uint CurrLvl { get; set; } // Current level (by index)
+            public uint CurrPart { get; set; } // Current part (by index)
+            public uint CurrEx { get; set; } // Current exercice (by index)
 
             uint uScore;    // Current score
         }
@@ -87,7 +87,7 @@ namespace LearnTypingGame
          * */
         private void InitSession()
         {
-            tProgress       = new SavedProgress();                    
+            tProgress       = new SavedProgress();                   
             uBestResults    = new uint[(int)BEST_SCORES.eXthBEST];
         }
 
@@ -122,9 +122,72 @@ namespace LearnTypingGame
         }
 
         /**
+         * Get the current session LEVEL / PART / EXERCICE.
+         * */
+        public uint GetCurr(string szComp)
+        {
+            switch(szComp)
+            {
+                case "Level":
+                    return tProgress.CurrLvl;
+                case "Part":
+                    return tProgress.CurrPart;
+                case "Exercice":
+                    return tProgress.CurrEx;
+                default:
+                    // shouldn't fall here!
+                    return 0;
+            }
+        }
+
+        /**
+         * Increment the current session LEVEL / PART / EXERCICE.
+         * */
+        public void Next(string szComp)
+        {
+            switch (szComp)
+            {
+                case "Level":
+                    tProgress.CurrLvl++;
+                    break;
+                case "Part":
+                    tProgress.CurrPart++;
+                    break;
+                case "Exercice":
+                    tProgress.CurrEx++;
+                    break;
+                default:
+                    // shouldn't fall here!
+                    break;
+            }
+        }
+
+        /**
+         * Reset the current session LEVEL / PART / EXERCICE.
+         * */
+        public void Reset(string szComp)
+        {
+            switch (szComp)
+            {
+                case "Level":
+                    tProgress.CurrLvl = 0;
+                    break;
+                case "Part":
+                    tProgress.CurrPart = 0;
+                    break;
+                case "Exercice":
+                    tProgress.CurrEx = 0;
+                    break;
+                default:
+                    // shouldn't fall here!
+                    break;
+            }
+        }
+
+        /**
          * Save the current session and return TRUE if saved successfully.
          * */
-        public bool SaveSession()
+        public bool Save()
         {
             // Todo...
             return false;
