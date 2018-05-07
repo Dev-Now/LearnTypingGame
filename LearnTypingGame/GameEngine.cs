@@ -110,6 +110,7 @@ namespace LearnTypingGame
          * */
         public GameSession(string szDatHash)
         {
+            this.EndReq = false;
             // Save data file hash
             szDatFileHash = szDatHash;
             // Get the player name
@@ -184,12 +185,16 @@ namespace LearnTypingGame
             }
         }
 
+        public bool EndReq { get; set; } // End Session request
+        
         /**
          * Save the current session and return TRUE if saved successfully.
          * */
         public bool Save()
         {
+            Console.WriteLine("Saving player {0} session...", szPlayer);
             // Todo...
+            Console.ReadKey(true);
             return false;
         }
     }

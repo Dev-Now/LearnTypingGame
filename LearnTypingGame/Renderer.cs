@@ -14,15 +14,23 @@ namespace LearnTypingGame
      * - orchestrate game rendering
      *  >> displays current game level / part / hint / challenge text - according to graphical config.
      *  >> increments levels / parts / hints / challenges - according to given rules
+     *  >> Save game session progress when requested
      * 
      * */
     class Renderer
     {
+        private bool bSessionEnded; // Current session ended
+
         /**
          * Renderer constructor
          * */
         public Renderer()
         {
+            bSessionEnded = false;
+
+            // Prevent example from ending if CTL+C is pressed.
+            Console.TreatControlCAsInput = true;
+
             // the constructor should set the initial rendering config. 
             // - text colors / fonts 
             // - background colors
@@ -36,26 +44,19 @@ namespace LearnTypingGame
         public void RenderGameSession(GenericComponent[] cComps, GameSession cSession)
         {
             // Rendering logic
-            uint nLvl   = cSession.GetCurr("Level");
-            uint nPart  = cSession.GetCurr("Part");
-            uint nEx    = cSession.GetCurr("Exercice");
-            switch (cComps[0].GetType().Name)
+            int nCompNb = cComps?.Length ?? 0;
+            if (nCompNb > 0)
             {
-                case "Level":
-                    for (uint nLvlNdx = nLvl; nLvlNdx < cComps.Length; nLvlNdx++) { RenderSingleComponent(cComps[nLvlNdx], cSession); cSession.Next("Level"); }
-                    cSession.Reset("Level");
-                    break;
-                case "Part":
-                    for (uint nPartNdx = nPart; nPartNdx < cComps.Length; nPartNdx++) { RenderSingleComponent(cComps[nPartNdx], cSession); cSession.Next("Part"); }
-                    cSession.Reset("Part");
-                    break;
-                case "Exercice":
-                    for (uint nExNdx = nEx; nExNdx < cComps.Length; nExNdx++) { RenderSingleComponent(cComps[nExNdx], cSession); cSession.Next("Exercice"); }
-                    cSession.Reset("Exercice");
-                    break;
-                default:
-                    // shouldn't fall here!
-                    break;
+                string szCompsType = cComps[0].GetType().Name;
+                uint nCurrComp = cSession.GetCurr(szCompsType);
+                for (uint nCompNdx = nCurrComp; nCompNdx < cComps.Length; nCompNdx++)
+                {
+                    RenderSingleComponent(cComps[nCompNdx], cSession);
+                    if (cSession.EndReq) { break; }
+                    cSession.Next(szCompsType);
+                }
+                if (cSession.EndReq) { RenderSessionEndDialog(ref bSessionEnded, cSession); return; }
+                cSession.Reset(szCompsType);
             }
         }
 
@@ -67,7 +68,7 @@ namespace LearnTypingGame
             switch(cComp.GetType().Name)
             {
                 case "Level":
-                    Console.Clear();
+                    Console.Clear(); Console.WriteLine("Press the Escape (Esc) key to quit. \n");
                     Console.WriteLine(cComp.GetTitle());
                     Console.WriteLine("--------------");
                     RenderGameSession(cComp.GetSubComps(), cSession);
@@ -79,13 +80,54 @@ namespace LearnTypingGame
                     RenderGameSession(cComp.GetSubComps(), cSession);
                     break;
                 case "Exercice":
+                    string szEx = cComp.GetText();
                     Console.WriteLine("Ready? {0}", cComp.GetHint());
-                    Console.WriteLine(  " Type this: {0}", cComp.GetText());
-                    Console.Write(      " =========> "); Console.ReadLine();
+                    Console.WriteLine(  " Type this: {0}", szEx);
+                    Console.Write(      " =========> "); ReadUserInput(szEx, cSession);
                     break;
                 default:
                     // shouldn't fall here!
                     break;
+            }
+        }
+
+        /**
+         * Render a single game session component
+         * */
+        private void ReadUserInput(string szEx, GameSession cSession)
+        {
+            bool bQuit = false;
+            ConsoleKeyInfo cki; int nCharNdx = 0;
+            do
+            {
+                cki = Console.ReadKey(true); 
+                if (cki.KeyChar == szEx[nCharNdx])
+                {
+                    Console.Write(cki.KeyChar);
+                    nCharNdx++;
+                }
+                else
+                {
+                    Console.Beep();
+                }
+                bQuit = (cki.Key == ConsoleKey.Escape);
+            } while (!bQuit && (nCharNdx < szEx.Length));
+            Console.WriteLine();
+            cSession.EndReq = bQuit;
+        }
+
+        /**
+         * Render the game session end dialog
+         * */
+        public void RenderSessionEndDialog(ref bool bSessionEnded, GameSession cSession)
+        {
+            if (!bSessionEnded)
+            {
+                Console.Clear(); Console.Write("You are about to quit.\nDo you want to save your session? Y (yes), N (No): ");
+                ConsoleKeyInfo cki = Console.ReadKey(true);
+                while ((cki.Key != ConsoleKey.Y) && (cki.Key != ConsoleKey.N)) { Console.Beep(); cki = Console.ReadKey(true); }
+                Console.WriteLine(cki.Key.ToString()); bSessionEnded = true;
+                if (cki.Key == ConsoleKey.Y) { cSession.Save(); }
             }
         }
     }
