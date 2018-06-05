@@ -65,7 +65,7 @@ namespace LearnTypingGame
             public uint CurrPart { get; set; } // Current part (by index)
             public uint CurrEx { get; set; } // Current exercice (by index)
 
-            uint uScore;    // Current score
+            public double CurrScore { get; set; } // Current score
         }
 
         protected string           szDatFileHash;   // used data file hash (game session data should use same data file as ref. for score comparison and storage)
@@ -196,6 +196,15 @@ namespace LearnTypingGame
             // Todo...
             Console.ReadKey(true);
             return false;
+        }
+
+        /**
+         * Save the current session and return TRUE if saved successfully.
+         * */
+        public void UpdateScore(double dTimeInSecs, int nExSize)
+        {
+            double CHAR_GAIN = 10.0;
+            tProgress.CurrScore += (nExSize * CHAR_GAIN) / dTimeInSecs;
         }
     }
 

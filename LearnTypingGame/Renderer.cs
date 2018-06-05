@@ -63,7 +63,7 @@ namespace LearnTypingGame
         /**
          * Render a single game session component
          * */
-        public void RenderSingleComponent(GenericComponent cComp, GameSession cSession)
+        private void RenderSingleComponent(GenericComponent cComp, GameSession cSession)
         {
             switch(cComp.GetType().Name)
             {
@@ -96,11 +96,15 @@ namespace LearnTypingGame
          * */
         private void ReadUserInput(string szEx, GameSession cSession)
         {
-            bool bQuit = false;
+            bool bQuit = false; double dTimeInSecs = 1; bool bFirstKey = true; double dStartTime = 0;
             ConsoleKeyInfo cki; int nCharNdx = 0;
             do
             {
-                cki = Console.ReadKey(true); 
+                // get typed key
+                cki = Console.ReadKey(true);
+                // set timing start 
+                if (bFirstKey)  { dStartTime = DateTime.Now.TimeOfDay.TotalSeconds; bFirstKey = false; }
+                // process typed key
                 if (cki.KeyChar == szEx[nCharNdx])
                 {
                     Console.Write(cki.KeyChar);
@@ -114,12 +118,15 @@ namespace LearnTypingGame
             } while (!bQuit && (nCharNdx < szEx.Length));
             Console.WriteLine();
             cSession.EndReq = bQuit;
+            
+            // Update score
+            if(!bQuit) { cSession.UpdateScore(dTimeInSecs, szEx.Length); }
         }
 
         /**
          * Render the game session end dialog
          * */
-        public void RenderSessionEndDialog(ref bool bSessionEnded, GameSession cSession)
+        private void RenderSessionEndDialog(ref bool bSessionEnded, GameSession cSession)
         {
             if (!bSessionEnded)
             {
