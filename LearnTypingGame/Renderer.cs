@@ -116,11 +116,14 @@ namespace LearnTypingGame
                 }
                 bQuit = (cki.Key == ConsoleKey.Escape);
             } while (!bQuit && (nCharNdx < szEx.Length));
+            // Update score
+            if (!bQuit) {
+                dTimeInSecs = DateTime.Now.TimeOfDay.TotalSeconds - dStartTime;
+                cSession.UpdateScore(dTimeInSecs, szEx.Length);
+            }
+            // End Challenge
             Console.WriteLine();
             cSession.EndReq = bQuit;
-            
-            // Update score
-            if(!bQuit) { cSession.UpdateScore(dTimeInSecs, szEx.Length); }
         }
 
         /**

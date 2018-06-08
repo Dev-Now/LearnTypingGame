@@ -205,6 +205,7 @@ namespace LearnTypingGame
         {
             double CHAR_GAIN = 10.0;
             tProgress.CurrScore += (nExSize * CHAR_GAIN) / dTimeInSecs;
+            Console.WriteLine("\nYOUR SCORE ***** {0:0} *****", tProgress.CurrScore); // FOR TESTING
         }
     }
 
